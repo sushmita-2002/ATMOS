@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATMOS</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: white;
+            color: black;
+            text-align: center;
+            padding: 8px 0;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .main-container {
+            display: flex;
+            background-color: #fff;
+            border-radius: 10px;
+            margin: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar {
+            width: 200px;
+            background-color: darkgreen;
+            color: white;
+            padding: 20px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar li {
+            margin: 10px 0;
+        }
+
+        .sidebar a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: white;
+    color: darkgreen; 
+}
+
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+        
+
+.analytics-container {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+}
+
+.side-by-side-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.tracking-container,
+.inventory-container {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 0 10px;
+}
+
+.tracking-container h2,
+.inventory-container h2 {
+    text-align: center;
+}
+
+
+.tracking-steps {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.tracking-step {
+    text-align: center;
+    position: relative;
+    margin: 10px 0; 
+}
+
+.step-icon {
+    background-color: #3498db;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    line-height: 30px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.arrow {
+    font-size: 24px;
+    color: #3498db;
+    margin: 10px 0; 
+}
+
+
+.tracking-step p {
+    margin: 0;
+    font-size: 14px;
+}
+
+
+.tracking-step {
+    padding: 0 20px; 
+}
+
+
+.dual-analytics-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.dual-analytics-container canvas {
+    width: 350%; 
+    height: 350px;
+}
+
+
+    </style>
+    <link rel="icon" href="../static/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="icon">
+                <img src="static\bg.png" alt="Icon" width="125" height="125">
+            </div>
+            <h1>Advanced Transportation Management and Operation System</h1>
+            
+        </div>
+
+    </header>
+
+    <div class="main-container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="/">Dashboard</a></li>
+                    <li><a href="/demand">Product Availibility</a></li>
+                    <li><a href="/inventory">Inventory Management</a></li>
+                    <li><a href="/route">Optimized Routes</a></li>
+                    <li><a href="/analytics">Analytics & Visualization</a></li>
+                    <li><a href="/track">Real-Time Tracking</a></li>
+                    <li><a href="/pool">Pooling</a></li>
+                    <li><a href="/compliance">Compliance</a></li>
+
+                </ul>
+            </nav>
+        </aside>
+
+        <section class="content">
+            <h1 style="text-align: center;">Welcome to ATMOS</h1>
+            <br>
+            <p style="text-align: center;">Revolutionizing the Agri-Food Supply Chain Management</p>
+        
+
+<section class="analytics-container">
+
+<div class="dual-analytics-container">
+    <div class="small-chart-container">
+        <h3>Revenue</h3>
+        <canvas id="analyticsChart1" width="200" height="150"></canvas>
+    </div>
+    <div class="small-chart-container">
+        <h3>CO2 emissions</h3>
+        <canvas id="analyticsChart2" width="200" height="150"></canvas>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    
+    var analyticsData1 = {
+        labels: ["January", "February", "March", "April", "May"],
+        datasets: [{
+            label: "lakhs/month",
+            backgroundColor: "rgba(75, 192, 192, 0.2)",
+            borderColor: "rgba(75, 192, 192, 1)",
+            borderWidth: 1,
+            data: [65, 59, 80, 81, 85],
+        }],
+    };
+
+    var analyticsData2 = {
+        labels: ["June", "July", "August", "September", "October"],
+        datasets: [{
+            label: "kgs/month",
+            backgroundColor: "rgba(255, 99, 132, 0.2)",
+            borderColor: "rgba(255, 99, 132, 1)",
+            borderWidth: 1,
+            data: [55, 52, 45, 41, 39],
+        }],
+    };
+
+    
+    var analyticsCtx1 = document.getElementById('analyticsChart1').getContext('2d');
+    var analyticsCtx2 = document.getElementById('analyticsChart2').getContext('2d');
+
+    
+    new Chart(analyticsCtx1, {
+        type: 'line',
+        data: analyticsData1,
+    });
+
+    new Chart(analyticsCtx2, {
+        type: 'line',
+        data: analyticsData2,
+    });
+</script>
+
+</section>
+
+
+<div class="side-by-side-container">
+    <section class="tracking-container">
+        <h2>Real-Time Tracking</h2>
+        
+<div class="tracking-steps">
+    <div class="tracking-step">
+        <div class="step-icon">1</div>
+        <p>Shipped</p>
+        <p class="additional-info">ID: T006 has been shipped</p>
+    </div>
+    <div class="arrow">&#8595;</div>
+    <div class="tracking-step">
+        <div class="step-icon">2</div>
+        <p>Checkpoint</p>
+        <p class="additional-info">Reached Checkpoint 1</p>
+        <p class="additional-info">Yet out for Delivery</p>
+    </div>
+    <div class="tracking-step">
+        <br><br>
+        <div class="step-icon">3</div>
+        <p>Delivery</p>
+        <p class="additional-info">Additional Info 3</p>
+    </div>
+</div>
+
+
+
+
+    </section>
+
+
+
+    <section class="inventory-container">
+        <h2>Inventory Management</h2>
+        
+<canvas id="inventoryChart" width="400" height="200"></canvas>
+
+<script>
+    
+    var inventoryData = {
+        labels: ["Rice", "Wheat", "Fruits", "Maze", "Corn"],
+        datasets: [{
+            data: [50, 30, 20, 45, 60],
+            backgroundColor: ["#3498db", "#e74c3c", "#2ecc71", "#f39c12", "#9b59b6"],
+        }],
+    };
+
+   
+    var inventoryCtx = document.getElementById('inventoryChart').getContext('2d');
+
+    
+    var inventoryChart = new Chart(inventoryCtx, {
+        type: 'doughnut',
+        data: inventoryData,
+    });
+</script>
+
+        
+    </section>
+</div>
+<br>
+            <a href="#">Sign Up</a> | <a href="#">Contact Us</a>
+        </section>
+        
+    </div>
+</body>
+</html>

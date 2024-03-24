@@ -1,0 +1,398 @@
+<!-- index3, product avail -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATMOS</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: white;
+            color: black;
+            text-align: center;
+            padding: 8px 0;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .main-container {
+            display: flex;
+            background-color: #fff;
+            border-radius: 10px;
+            margin: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar {
+            width: 200px;
+            background-color: darkgreen;
+            color: white;
+            padding: 20px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar li {
+            margin: 10px 0;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: white;
+            color: darkgreen;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+        .analytics-container {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .side-by-side-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .tracking-container,
+        .inventory-container {
+            flex: 1;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 0 10px;
+        }
+
+        .tracking-container h2,
+        .inventory-container h2 {
+            text-align: center;
+        }
+
+        .tracking-steps {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .tracking-step {
+            text-align: center;
+            position: relative;
+            margin: 10px 0;
+        }
+
+        .step-icon {
+            background-color: #3498db;
+            color: #fff;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            line-height: 30px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .arrow {
+            font-size: 24px;
+            color: #3498db;
+            margin: 10px 0;
+        }
+
+        .tracking-step p {
+            margin: 0;
+            font-size: 14px;
+        }
+        .tracking-step {
+            padding: 0 20px;
+        }
+
+        .dual-analytics-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .dual-analytics-container canvas {
+            width: 350%;
+            height: 350px;
+        }
+        form {
+    text-align: center;
+    margin-top: 20px;
+}
+
+form label {
+    font-size: 16px;
+}
+
+form input {
+    padding: 8px;
+    margin: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 200px;
+}
+
+form input[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #4caf50;
+    color: white;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+.side-by-side-container {
+    margin-top: 20px;
+}
+form {
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        select,
+        input {
+            width: 50%;
+            padding: 10px;
+            margin-bottom: 16px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <link rel="icon" href="../static/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <div class="icon">
+                <img src="static\bg.png" alt="Icon" width="125" height="125">
+            </div>
+            <h1>Advanced Transportation Management and Operation System</h1>
+
+        </div>
+
+    </header>
+
+    <div class="main-container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="/">Dashboard</a></li>
+                    <li><a href="/demand">Product Availibility</a></li>
+                    <li><a href="/inventory">Inventory Management</a></li>
+                    <li><a href="/route">Optimized Routes</a></li>
+                    <li><a href="/analytics">Analytics & Visualization</a></li>
+                    <li><a href="/track">Real-Time Tracking</a></li>
+                    <li><a href="/pool">Pooling</a></li>
+                    <li><a href="/compliance">Compliance</a></li>
+
+                </ul>
+            </nav>
+        </aside>
+
+        <section class="analytics-container">
+            <h1>Warehouse Data</h1>
+            <br>
+            <form method="post" action="/demand">
+                <label for="location">Location: </label>
+                <select name="location" id="location" required>
+                </select>
+                <br>
+                <br>
+                <label for="product">Product: </label>
+                <select name="product" id="product" required>
+                </select>
+                <br>
+                <br>
+                <label for="quantity">Quantity: </label>
+                <input type="text" name="quantity" id="quantity" required>
+                <br>
+                <br>
+                <input type="submit" value="Search">
+            </form>
+            <div class="side-by-side-container">
+                <table border="1">
+                    <tr>
+                        <th>Warehouse ID</th>
+                        <th>Warehouse City</th>
+                        <th>Product</th>
+                        <th>Quantity Available</th>
+                        <th>Price per kg</th>
+                        <th>Cost</th>
+                    </tr>
+                    {% for item in data %}
+                    <tr>
+                        <td>{{ item.Warehouse_id }}</td>
+                        <td>{{ item.Warehouse_City }}</td>
+                        <td>{{ item.Product }}</td>
+                        <td>{{ item.Quantity_Available }}</td>
+                        <td>{{ item.Price_per_kg }}</td>
+                        <td>{{ item.Cost }}</td>               
+                    </tr>
+                    {% endfor %}
+                </table>
+
+            </div>
+            <script>
+                var locationSelect = document.getElementById("location");
+                var productSelect = document.getElementById("product");
+            
+                var data = [
+    {"Warehouse_id": 51, "Warehouse_City": "Raipur", "Product": "Rice", "Quantity_Available": "5000kg", "Price_per_kg": 50},
+    {"Warehouse_id": 52, "Warehouse_City": "Durg", "Product": "Wheat", "Quantity_Available": "2000Kg", "Price_per_kg": 25},
+    {"Warehouse_id": 53, "Warehouse_City": "Bhilai", "Product": "Apple", "Quantity_Available": "1000kg", "Price_per_kg": 70},
+    {"Warehouse_id": 1, "Warehouse_City": "Raipur", "Product": "Rice", "Quantity_Available": "5000kg", "Price_per_kg": 50},
+    {"Warehouse_id": 2, "Warehouse_City": "Bilaspur", "Product": "Wheat", "Quantity_Available": "2000Kg", "Price_per_kg": 25},
+    {"Warehouse_id": 3, "Warehouse_City": "Durg", "Product": "Apple", "Quantity_Available": "1000kg", "Price_per_kg": 70},
+    {"Warehouse_id": 4, "Warehouse_City": "Korba", "Product": "Rice", "Quantity_Available": "7500kg", "Price_per_kg": 55},
+    {"Warehouse_id": 5, "Warehouse_City": "Jagdalpur", "Product": "Wheat", "Quantity_Available": "2800Kg", "Price_per_kg": 26},
+    {"Warehouse_id": 6, "Warehouse_City": "Raigarh", "Product": "Apple", "Quantity_Available": "1100kg", "Price_per_kg": 68},
+    {"Warehouse_id": 7, "Warehouse_City": "Ambikapur", "Product": "Rice", "Quantity_Available": "4900kg", "Price_per_kg": 52},
+    {"Warehouse_id": 8, "Warehouse_City": "Mahasamund", "Product": "Wheat", "Quantity_Available": "2200Kg", "Price_per_kg": 24},
+    {"Warehouse_id": 9, "Warehouse_City": "Bemetara", "Product": "Apple", "Quantity_Available": "980kg", "Price_per_kg": 72},
+    {"Warehouse_id": 10, "Warehouse_City": "Dhamtari", "Product": "Rice", "Quantity_Available": "4800kg", "Price_per_kg": 51},
+    {"Warehouse_id": 11, "Warehouse_City": "Janjgir-Champa", "Product": "Wheat", "Quantity_Available": "2100Kg", "Price_per_kg": 23},
+    {"Warehouse_id": 12, "Warehouse_City": "Kanker", "Product": "Apple", "Quantity_Available": "950kg", "Price_per_kg": 75},
+    {"Warehouse_id": 13, "Warehouse_City": "Kabirdham", "Product": "Rice", "Quantity_Available": "4700kg", "Price_per_kg": 54},
+    {"Warehouse_id": 14, "Warehouse_City": "Kondagaon", "Product": "Wheat", "Quantity_Available": "2400Kg", "Price_per_kg": 22},
+    {"Warehouse_id": 15, "Warehouse_City": "Surajpur", "Product": "Apple", "Quantity_Available": "930kg", "Price_per_kg": 73},
+    {"Warehouse_id": 16, "Warehouse_City": "Balod", "Product": "Rice", "Quantity_Available": "4600kg", "Price_per_kg": 53},
+    {"Warehouse_id": 17, "Warehouse_City": "Baloda Bazar", "Product": "Wheat", "Quantity_Available": "2600Kg", "Price_per_kg": 21},
+    {"Warehouse_id": 18, "Warehouse_City": "Mungeli", "Product": "Apple", "Quantity_Available": "910kg", "Price_per_kg": 74},
+    {"Warehouse_id": 19, "Warehouse_City": "Sukma", "Product": "Rice", "Quantity_Available": "4500kg", "Price_per_kg": 56},
+    {"Warehouse_id": 20, "Warehouse_City": "Narayanpur", "Product": "Wheat", "Quantity_Available": "2700Kg", "Price_per_kg": 27},
+    {"Warehouse_id": 21, "Warehouse_City": "Balrampur", "Product": "Apple", "Quantity_Available": "890kg", "Price_per_kg": 76},
+    {"Warehouse_id": 22, "Warehouse_City": "Mahasamund", "Product": "Rice", "Quantity_Available": "4400kg", "Price_per_kg": 57},
+    {"Warehouse_id": 23, "Warehouse_City": "Korba", "Product": "Wheat", "Quantity_Available": "2800Kg", "Price_per_kg": 28},
+    {"Warehouse_id": 24, "Warehouse_City": "Kanker", "Product": "Apple", "Quantity_Available": "870kg", "Price_per_kg": 77},
+    {"Warehouse_id": 25, "Warehouse_City": "Ambikapur", "Product": "Rice", "Quantity_Available": "4300kg", "Price_per_kg": 58},
+    {"Warehouse_id": 26, "Warehouse_City": "Raigarh", "Product": "Wheat", "Quantity_Available": "2900Kg", "Price_per_kg": 29},
+    {"Warehouse_id": 27, "Warehouse_City": "Bemetara", "Product": "Apple", "Quantity_Available": "850kg", "Price_per_kg": 78},
+    {"Warehouse_id": 28, "Warehouse_City": "Dhamtari", "Product": "Rice", "Quantity_Available": "4200kg", "Price_per_kg": 59},
+    {"Warehouse_id": 29, "Warehouse_City": "Baloda Bazar", "Product": "Wheat", "Quantity_Available": "3000Kg", "Price_per_kg": 30},
+    {"Warehouse_id": 30, "Warehouse_City": "Surajpur", "Product": "Apple", "Quantity_Available": "830kg", "Price_per_kg": 79},
+    {"Warehouse_id": 31, "Warehouse_City": "Kabirdham", "Product": "Rice", "Quantity_Available": "5100kg", "Price_per_kg": 52},
+    {"Warehouse_id": 32, "Warehouse_City": "Kondagaon", "Product": "Wheat", "Quantity_Available": "2200Kg", "Price_per_kg": 24},
+    {"Warehouse_id": 33, "Warehouse_City": "Balrampur", "Product": "Apple", "Quantity_Available": "960kg", "Price_per_kg": 65},
+    {"Warehouse_id": 34, "Warehouse_City": "Sukma", "Product": "Rice", "Quantity_Available": "4300kg", "Price_per_kg": 55},
+    {"Warehouse_id": 35, "Warehouse_City": "Narayanpur", "Product": "Wheat", "Quantity_Available": "2600Kg", "Price_per_kg": 27},
+    {"Warehouse_id": 36, "Warehouse_City": "Balrampur", "Product": "Apple", "Quantity_Available": "900kg", "Price_per_kg": 75},
+    {"Warehouse_id": 37, "Warehouse_City": "Mahasamund", "Product": "Rice", "Quantity_Available": "4800kg", "Price_per_kg": 58},
+    {"Warehouse_id": 38, "Warehouse_City": "Korba", "Product": "Wheat", "Quantity_Available": "2400Kg", "Price_per_kg": 20},
+    {"Warehouse_id": 39, "Warehouse_City": "Balrampur", "Product": "Apple", "Quantity_Available": "980kg", "Price_per_kg": 70},
+    {"Warehouse_id": 40, "Warehouse_City": "Bemetara", "Product": "Rice", "Quantity_Available": "4500kg", "Price_per_kg": 53},
+    {"Warehouse_id": 41, "Warehouse_City": "Raigarh", "Product": "Wheat", "Quantity_Available": "2800Kg", "Price_per_kg": 26},
+    {"Warehouse_id": 42, "Warehouse_City": "Kanker", "Product": "Apple", "Quantity_Available": "1100kg", "Price_per_kg": 69},
+    {"Warehouse_id": 43, "Warehouse_City": "Raigarh", "Product": "Rice", "Quantity_Available": "4900kg", "Price_per_kg": 54},
+    {"Warehouse_id": 44, "Warehouse_City": "Jagdalpur", "Product": "Wheat", "Quantity_Available": "2000Kg", "Price_per_kg": 25},
+    {"Warehouse_id": 45, "Warehouse_City": "Dhamtari", "Product": "Apple", "Quantity_Available": "1000kg", "Price_per_kg": 73},
+    {"Warehouse_id": 46, "Warehouse_City": "Ambikapur", "Product": "Rice", "Quantity_Available": "5200kg", "Price_per_kg": 51},
+    {"Warehouse_id": 47, "Warehouse_City": "Baloda Bazar", "Product": "Wheat", "Quantity_Available": "2700Kg", "Price_per_kg": 23},
+    {"Warehouse_id": 48, "Warehouse_City": "Mungeli", "Product": "Apple", "Quantity_Available": "990kg", "Price_per_kg": 71},
+    {"Warehouse_id": 49, "Warehouse_City": "Sukma", "Product": "Rice", "Quantity_Available": "4400kg", "Price_per_kg": 52},
+    {"Warehouse_id": 50, "Warehouse_City": "Balrampur", "Product": "Wheat", "Quantity_Available": "2500Kg", "Price_per_kg": 24},
+];
+            
+                var uniqueCities = [...new Set(data.map(item => item.Warehouse_City))];
+                var uniqueProducts = [...new Set(data.map(item => item.Product))];
+            
+                uniqueCities.forEach(function(city) {
+                    var option = document.createElement("option");
+                    option.text = city;
+                    locationSelect.add(option);
+                });
+                uniqueProducts.forEach(function(product) {
+                    var option = document.createElement("option");
+                    option.text = product;
+                    productSelect.add(option);
+                });
+            </script>
+</body>
+</html>

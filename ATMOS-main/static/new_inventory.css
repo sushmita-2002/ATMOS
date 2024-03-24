@@ -1,0 +1,130 @@
+
+
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Apply styles to the body */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center; /* Center text in the body */
+}
+
+/* Style the header */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+header h2 {
+    font-size: 18px;
+}
+
+/* Center the content */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+/* Style the buttons */
+button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 30px;
+    cursor: pointer;
+    font-size: 18px;
+    margin: 20px; /* Add margin for spacing */
+    display: inline-block;
+    max-width: 200px; /* Limit the button width */
+}
+
+/* Style the buttons inside the card */
+.addCard button[type="submit"],
+.removeCard button[type="submit"] {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 30px;
+    cursor: pointer;
+    font-size: 18px;
+    margin: 20px auto; /* Center the button horizontally with top and bottom margin */
+    display: block; /* Make the button a block element to center horizontally */
+}
+
+.addCard {
+    background: #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 2px 2px 5px #888888;
+    width: calc(50% - 50px);
+    max-width: 400px;
+}
+
+.removeCard {
+    background: #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 2px 2px 5px #888888;
+    width: calc(50% - 50px);
+    max-width: 400px;
+}
+
+.All_itemCard {
+    background: #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 2px 2px 5px #888888;
+    width: 90%;
+}
+
+h2 {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Style the table */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}

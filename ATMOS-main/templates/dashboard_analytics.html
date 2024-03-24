@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATMOS</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .visualization {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .visualization h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .visualization img {
+            max-width: 100%;
+        }
+
+        .form-container {
+            display: grid;
+            grid-template-columns: repeat(9, 1fr);
+            gap: 15px;
+        }
+
+        .form-field {
+            padding: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 2px;
+            align-items: center;
+
+        }
+
+
+        .form-field label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-field input {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 1px;
+            align-items: center;
+        }
+
+        .submit-button {
+            grid-column: span 9;
+            text-align: center;
+        }
+
+        header {
+            background-color: white;
+            color: black;
+            text-align: center;
+            padding: 8px 0;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .main-container {
+            display: flex;
+            background-color: #fff;
+            border-radius: 10px;
+            margin: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar {
+            width: 200px;
+            background-color: darkgreen;
+            color: white;
+            padding: 20px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar li {
+            margin: 10px 0;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: white;
+            color: darkgreen;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+
+
+        .analytics-container {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .side-by-side-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .tracking-container,
+        .inventory-container {
+            flex: 1;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 0 10px;
+        }
+
+        .tracking-container h2,
+        .inventory-container h2 {
+            text-align: center;
+        }
+
+
+        .tracking-steps {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .tracking-step {
+            text-align: center;
+            position: relative;
+            margin: 10px 0;
+        }
+
+        .step-icon {
+            background-color: #3498db;
+            color: #fff;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            line-height: 30px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .arrow {
+            font-size: 24px;
+            color: #3498db;
+            margin: 10px 0;
+        }
+
+
+        .tracking-step p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+
+        .tracking-step {
+            padding: 0 20px;
+        }
+
+
+        .dual-analytics-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .dual-analytics-container canvas {
+            width: 350%;
+            height: 350px;
+        }
+    </style>
+    <link rel="icon" href="../static/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <div class="icon">
+                <img src="static\bg.png" alt="Icon" width="125" height="125">
+            </div>
+            <h1>Advanced Transportation Management and Operation System</h1>
+
+        </div>
+
+    </header>
+
+    <div class="main-container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="/">Dashboard</a></li>
+                    <li><a href="/demand">Product Availibility</a></li>
+                    <li><a href="/inventory">Inventory Management</a></li>
+                    <li><a href="/route">Optimized Routes</a></li>
+                    <li><a href="/analytics">Analytics & Visualization</a></li>
+                    <li><a href="/track">Real-Time Tracking</a></li>
+                    <li><a href="/pool">Pooling</a></li>
+                    <li><a href="/compliance">Compliance</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <section class="content">
+            <h1 style="text-align: center;">Upload New Data</h1>
+            <br>
+
+            
+            <section class="analytics-container">
+                
+                <div class="dual-analytics-container">
+                    <form action="/upload" method="post">
+                        <div class="form-container">
+                            <div class="form-field">
+                                <label for="product-name">Product Name:</label>
+                                <input type="text" name="product-name" id="product-name">
+                            </div>
+                            <div class="form-field">
+                                <label for="product-type">Product Type:</label>
+                                <input type="text" name="product-type" id="product-type">
+                            </div>
+                            <div class="form-field">
+                                <label for="origin-location">Origin Location:</label>
+                                <input type="text" name="origin-location" id="origin-location">
+                            </div>
+                            <div class="form-field">
+                                <label for="destination-location">Destination Location:</label>
+                                <input type="text" name="destination-location" id="destination-location">
+                            </div>
+                            <div class="form-field">
+                                <label for="transportation-mode">Transportation Mode:</label>
+                                <input type="text" name="transportation-mode" id="transportation-mode">
+                            </div>
+                            <div class="form-field">
+                                <label for="departure-date">Departure Date:</label>
+                                <input type="text" name="departure-date" id="departure-date">
+                            </div>
+                            <div class="form-field">
+                                <label for="arrival-date">Arrival Date:</label>
+                                <input type="text" name="arrival-date" id="arrival-date">
+                            </div>
+                            <div class="form-field">
+                                <label for="distance">Distance (in miles):</label>
+                                <input type="text" name="distance" id="distance">
+                            </div>
+                            <div class="form-field">
+                                <label for="fuel-consumption">Fuel Consumption (in gallons):</label>
+                                <input type="text" name="fuel-consumption" id="fuel-consumption">
+                            </div>
+                            <div class="form-field">
+                                <label for="co2-emissions">CO2 Emissions (in kg):</label>
+                                <input type="text" name="co2-emissions" id="co2-emissions">
+                            </div>
+                            <div class="form-field">
+                                <label for="transport-cost">Transport Cost (in dollars):</label>
+                                <input type="text" name="transport-cost" id="transport-cost">
+                            </div>
+                            <div class="form-field">
+                                <label for="compliance-status">Compliance Status:</label>
+                                <input type="text" name="compliance-status" id="compliance-status">
+                            </div>
+                            <div class="form-field">
+                                <label for="maintenance-status">Maintenance Status:</label>
+                                <input type="text" name="maintenance-status" id="maintenance-status">
+                            </div>
+                            <div class="form-field">
+                                <label for="weather-conditions">Weather Conditions:</label>
+                                <input type="text" name="weather-conditions" id="weather-conditions">
+                            </div>
+                            <div class="form-field">
+                                <label for="route-details">Route Optimization Details:</label>
+                                <input type="text" name="route-details" id="route-details">
+                            </div>
+                            <div class="form-field">
+                                <label for="quantity">Quantity:</label>
+                                <input type="text" name="quantity" id="quantity">
+                            </div>
+                            <div class="form-field">
+                                <label for="revenue">Revenue:</label>
+                                <input type="text" name="revenue" id="revenue">
+                            </div>
+                            <div class="form-field">
+                                <label for="temperature">Temperature:</label>
+                                <input type="text" name="temperature" id="temperature">
+                            </div>
+                            <div class="form-field">
+                                <label for="humidity">Humidity:</label>
+                                <input type="text" name="humidity" id="humidity">
+                            </div>
+                            <div class="form-field">
+                                <label for="soil-moisture">Soil Moisture:</label>
+                                <input type="text" name="soil-moisture" id="soil-moisture">
+                            </div>
+                            <div class="form-field">
+                                <label for="pest-incidents">Pest Incidents:</label>
+                                <input type="text" name="pest-incidents" id="pest-incidents">
+                            </div>
+                            <div class="form-field">
+                                <label for="transportation-mode-2">Transportation Mode (2):</label>
+                                <input type="text" name="transportation-mode-2" id="transportation-mode-2">
+                            </div>
+                            <div class="form-field">
+                                <label for="distance-traveled">Distance Traveled:</label>
+                                <input type="text" name="distance-traveled" id="distance-traveled">
+                            </div>
+                            <div class="form-field">
+                                <label for="date">Date:</label>
+                                <input type="text" name="date" id="date">
+                            </div>
+                            <div class="form-field">
+                                <label for="quarter">Quarter:</label>
+                                <input type="text" name="quarter" id="quarter">
+                            </div>
+                            <div class="form-field">
+                                <label for="year">Year:</label>
+                                <input type="text" name="year" id="year">
+                            </div>
+                            <div class="submit-button">
+                                <input type="submit" value="Upload Data">
+                            </div>
+                        </div>
+                    </form>
+                    </form>
+
+                </div>
+
+
+
+            </section>
+
+            
+            <div class="side-by-side-container">
+                <div class="container">
+                    <h1 style="color: #000000; text-align: center;">Visualization Dashboard</h1>
+                    <br>
+                    <div class="grid">
+                        <div class="visualization">
+                            <h2>Bar chart for Total Quantity by Product Type</h2>
+                            <img src="data:image/png;base64, {{ plot_url1 }}" alt="Visualization 1">
+                        </div>
+
+                        <div class="visualization">
+                            <h2>Scatter plot for Temperature vs. Humidity</h2>
+                            <img src="data:image/png;base64, {{ plot_url2 }}" alt="Visualization 2">
+                        </div>
+
+                        <div class="visualization">
+                            <h2>Pie chart for Compliance Status</h2>
+                            <img src="data:image/png;base64, {{ plot_url3 }}" alt="Visualization 3">
+                        </div>
+
+                        <div class="visualization">
+                            <h2>Line chart for Quantity over Time</h2>
+                            <img src="data:image/png;base64, {{ plot_url4 }}" alt="Visualization 4">
+                        </div>
+
+                        <div class="visualization">
+                            <h2>Box plot for CO2 Emissions</h2>
+                            <img src="data:image/png;base64, {{ plot_url5 }}" alt="Visualization 5">
+                        </div>
+
+                        <div class="visualization">
+                            <h2>Histogram for Distance Traveled</h2>
+                            <img src="data:image/png;base64, {{ plot_url6 }}" alt="Visualization 6">
+                        </div>
+
+                        <div class="visualization">
+                            <h2>Correlation Heatmap</h2>
+                            <img src="data:image/png;base64, {{ plot_url7 }}" alt="Visualization 7">
+                        </div>
+
+                        <div class="visualization">
+                            <h2>Time Series of Revenue</h2>
+                            <img src="data:image.png;base64, {{ plot_url8 }}" alt="Visualization 8">
+                        </div>
+
+                        <div class="visualization">
+                            <h2>Bar chart for Quantity by Weather Conditions</h2>
+                            <img src="data:image/png;base64, {{ plot_url9 }}" alt="Visualization 9">
+                        </div>
+
+                        <div class="visualization">
+                            <h2>Box plot for Transport Cost by Transportation Mode</h2>
+                            <img src="data:image/png;base64, {{ plot_url10 }}" alt="Visualization 10">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <br>
+            <a href="#">Sign Up</a> | <a href="#">Contact Us</a>
+        </section>
+
+    </div>
+</body>
+
+</html>
